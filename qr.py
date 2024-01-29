@@ -41,7 +41,7 @@ with open(csv_file, 'r') as input_file, open(output_csv_file, 'w', newline='') a
 
     writer = csv.DictWriter(output_file, fieldnames=fieldnames)
     writer.writeheader()
-
+    c=0
     for row in reader:
         name = row['First Name']
         email = row['Email']
@@ -58,6 +58,6 @@ with open(csv_file, 'r') as input_file, open(output_csv_file, 'w', newline='') a
         row['Hash'] = unique_hash
         writer.writerow(row)
 
-        print(f'QR Code and Hash generated for {name}')
+        c+=1
 
-print('All QR Codes and Hashes generated successfully.')
+print(c,' QR Codes and Hashes generated successfully.')

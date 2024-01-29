@@ -1,7 +1,6 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const mandrill = require('mandrill-api');
-const path=require('path');
 
 const mandrillClient = new mandrill.Mandrill('md-mhM6LLfZ1EdrAMP_ZQbQVw');
 const templateName = "confirmation+QR";  // Replace with your template name
