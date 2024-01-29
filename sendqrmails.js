@@ -65,5 +65,5 @@ function sendEmail(recipient) {
 }
 function generateQRCodeUrl(hash) {
     // Assuming you have a function to generate QR code URLs based on hash
-    return `https://dev-env.eduyouthmeet-12n.pages.dev/qr_codes/${hash}_qr.png`;
+    return `https://sakethvarma0103.github.io/qr_codes/qr_codes/${hash}_qr.png`;
   }
