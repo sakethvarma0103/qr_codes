@@ -4,22 +4,19 @@ import csv
 import json
 
 # Assuming you have a CSV file named 'testr.csv' with columns: First Name, Email, Mobile Phone Number
-csv_file = 'unassigned-contacts.csv'
+csv_file = 'unassigned-contacts copy.csv'
 output_csv_file = 'testr_with_hashes.csv'  # New CSV file with added hash column
 
 # Function to create a unique hash for each student
-def generate_hash(name, email, phone):
-    data = f'{name}{email}{phone}'
+def generate_hash(email):
+    data = f'{email}'
     hashed_data = hashlib.md5(data.encode()).hexdigest()
     return hashed_data
 
 # Function to generate QR code for each student with embedded details
-def generate_qr_code_with_details(name, email, phone, filename):
+def generate_qr_code_with_details(email, filename):
     student_details = {
-        'Name': name,
-        'Email': email,
-        'Phone': phone
-    }
+        'Email': email    }
     details_json = json.dumps(student_details)
 
     qr = qrcode.QRCode(
@@ -43,16 +40,14 @@ with open(csv_file, 'r') as input_file, open(output_csv_file, 'w', newline='') a
     writer.writeheader()
     c=0
     for row in reader:
-        name = row['First Name']
         email = row['Email']
-        phone = row['Mobile Phone Number']
 
         # Generate a unique hash for each student
-        unique_hash = generate_hash(name, email, phone)
+        unique_hash = generate_hash(email)
 
         # Create a QR code with embedded student details
-        qr_code_filename = f'qr_codes/{unique_hash}_qr.png'
-        generate_qr_code_with_details(name, email, phone, qr_code_filename)
+        qr_code_filename = f'qrs_c/{unique_hash}_qr.png'
+        generate_qr_code_with_details(email, qr_code_filename)
 
         # Add the hash to the CSV file
         row['Hash'] = unique_hash
