@@ -4,7 +4,7 @@ import csv
 import json
 
 # Assuming you have a CSV file named 'testr.csv' with columns: First Name, Email, Mobile Phone Number
-csv_file = 'unassigned-contacts copy.csv'
+csv_file = 'qrc.csv'
 output_csv_file = 'testr_with_hashes.csv'  # New CSV file with added hash column
 
 # Function to create a unique hash for each student
