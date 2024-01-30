@@ -3,11 +3,11 @@ const csv = require('csv-parser');
 const mandrill = require('mandrill-api');
 
 const mandrillClient = new mandrill.Mandrill('md-mhM6LLfZ1EdrAMP_ZQbQVw');
-const templateName = "confirmation+QR";  // Replace with your template name
+const templateName = "QR2";  // Replace with your template name
 
 // Read recipients from CSV file
 const recipients = [];
-fs.createReadStream('testr_with_hashes.csv')
+fs.createReadStream('qr_hash.csv')
   .pipe(csv({
     headers: ["Record ID","First Name","Last Name","Mobile Phone Number","College","Email","Hash"],
   }))
